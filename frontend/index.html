@@ -9,34 +9,28 @@
 <h1>Warehouse Routing Comparison</h1>
 
 <div class="controls">
-
     <label>Grid Size:</label>
-
     <select id="gridSize">
+        <option value="15">15 x 15</option>
         <option value="10">10 x 10</option>
     </select>
-
     <br><br>
-
-    <button onclick="setMode('start')">Start</button>
-
-    <button onclick="setMode('goal')">Goal</button>
-
-    <button onclick="setMode('obstacle')">Obstacle</button>
-
-    <button onclick="clearGrid()">Clear</button>
-
-    <button onclick="runComparison()">Run Comparison</button>
-
+    
+    <button id="startBtn">Start Position</button>
+    <button id="goalBtn">Goal Position</button>
+    <button id="obstacleBtn">Place Obstacles</button>
+    <button id="clearBtn">Clear Grid</button>
+    <button id="runBtn">Run Comparison</button>
 </div>
 
 <div id="grid"></div>
 
 <h2>Results</h2>
-
-<div id="results"></div>
+<div id="results">
+    <p id="rlSteps"></p>
+    <p id="dijkstraSteps"></p>
+</div>
 
 <script src="/frontend/script.js"></script>
-
 </body>
 </html>
