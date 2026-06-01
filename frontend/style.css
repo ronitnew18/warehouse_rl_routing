@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#grid {
+    display: grid;
+    justify-content: center;
+    gap: 1px;
+    margin-top: 20px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.start {
+    background-color: green;
+}
+
+.goal {
+    background-color: red;
+}
+
+.obstacle {
+    background-color: black;
+}
+
+.rl-path {
+    background-color: orange;
+}
+
+.dijkstra-path {
+    background-color: cyan;
+}

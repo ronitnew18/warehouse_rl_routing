@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Warehouse RL Routing</title>
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body>
+
+<h1>Warehouse Routing Comparison</h1>
+
+<div class="controls">
+
+    <label>Grid Size:</label>
+
+    <select id="gridSize">
+        <option value="10">10 x 10</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="setMode('start')">Start</button>
+
+    <button onclick="setMode('goal')">Goal</button>
+
+    <button onclick="setMode('obstacle')">Obstacle</button>
+
+    <button onclick="clearGrid()">Clear</button>
+
+    <button onclick="runComparison()">Run Comparison</button>
+
+</div>
+
+<div id="grid"></div>
+
+<h2>Results</h2>
+
+<div id="results"></div>
+
+<script src="/frontend/script.js"></script>
+
+</body>
+</html>
