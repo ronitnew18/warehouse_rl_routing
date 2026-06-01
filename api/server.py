@@ -36,10 +36,11 @@ def run_rl(env):
     steps = 0
 
     while not done and steps < 100:
-        # Calculate state index directly to avoid class method errors
-        state_idx = int(state[0] * env.grid_size + state[1])
+        # DYNAMIC TRIGGER: Move an obstacle every 3 steps on the web server too!
+        if steps % 3 == 0 and steps > 0:
+            env.move_obstacles()
 
-        # Prevent index out of bounds if table is smaller than the grid state
+        state_idx = int(state[0] * env.grid_size + state[1])
         if state_idx >= len(q_table):
             break
 
