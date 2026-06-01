@@ -102,14 +102,27 @@ document.getElementById("runBtn").onclick = async () => {
 };
 
 function drawPath(path, cls) {
-    path.forEach(pos => {
+    let index = 0;
+
+    // Use a intervals to inject a delay between drawing each step
+    const interval = setInterval(() => {
+        if (index >= path.length) {
+            clearInterval(interval); // Stop animating when path finishes
+            return;
+        }
+
+        const pos = path[index];
         const r = pos[0];
         const c = pos[1];
+
         const cell = document.querySelector(`[data-row="${r}"][data-col="${c}"]`);
+        
         if (cell && !cell.classList.contains("start") && !cell.classList.contains("goal")) {
             cell.classList.add(cls);
         }
-    });
+
+        index++;
+    }, 100); // 100ms delay per step. Decrease for faster animation, increase for slower.
 }
 
 // Instantiate on startup
