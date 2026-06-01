@@ -78,8 +78,12 @@ def simulate(req: SimulationRequest):
         goal_pos=req.goal
     )
 
-    rl_path = run_rl(env)
-    dijkstra_path = dijkstra_warehouse(grid, req.start, req.goal)
+    rl_path_raw = run_rl(env)
+    dijkstra_path_raw = dijkstra_warehouse(grid, req.start, req.goal)
+
+    # CRITICAL FIX: Convert NumPy int64 elements into standard Python ints so FastAPI can convert them to JSON
+    rl_path = [[int(coords[0]), int(coords[1])] for coords in rl_path_raw]
+    dijkstra_path = [[int(coords[0]), int(coords[1])] for coords in dijkstra_path_raw]
 
     return {
         "rl_path": rl_path,
